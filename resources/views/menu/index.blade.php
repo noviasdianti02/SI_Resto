@@ -2,7 +2,6 @@
 
 @section('admin')
     <div class="page-content">
-
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
@@ -17,6 +16,7 @@
                                 <thead>
                                     <tr>
                                         <th>Menu ID</th>
+                                        <th>Foto</th>
                                         <th>Nama Menu</th>
                                         <th>Harga</th>
                                         <th>Deskripsi</th>
@@ -27,6 +27,12 @@
                                     @foreach ($menus as $menu)
                                         <tr>
                                             <td>{{ $menu->menu_id }}</td>
+                                            <td>
+                                                @if ($menu->foto)
+                                                    <img src="{{ asset('storage/foto_menu/' . $menu->foto) }}"
+                                                        alt="Foto Menu">
+                                                @endif
+                                            </td>
                                             <td>{{ $menu->nama_menu }}</td>
                                             <td>{{ $menu->harga }}</td>
                                             <td>{{ $menu->deskripsi }}</td>

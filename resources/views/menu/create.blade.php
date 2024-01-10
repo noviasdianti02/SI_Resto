@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Form Tambah Data Menu</h4>
-                        <form method="POST" action="{{ route('menu.store') }}">
+                        <form method="POST" action="{{ route('menu.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
@@ -36,6 +36,13 @@
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="foto" class="form-label">Foto Menu </label><br>
+                                <input type="file" name="foto" accept="image/*">
+                                @error('foto')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="row">
